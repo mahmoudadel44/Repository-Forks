@@ -1,0 +1,27 @@
+.allCards {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 100px auto;
+  width: 310px;
+  min-height: 400px;
+  padding: 16px;
+  font-size: 18px;
+  background-color: #009879;
+  border: 1px solid #009879;
+  border-radius: 18px;
+  color: #fff;
+}
+.card:hover{
+    transform: scale(1.02);
+    transition: 0.4s all ease-in-out;
+}
+.card ul {
+  padding: 25px;
+}
+.card ul li{
+  margin-bottom: 50px;
+}

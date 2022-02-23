@@ -1,7 +1,16 @@
+//Components
+import FavouritesCard from "../components/FavouritesCard";
+
+//Css
+import "../styles/Favourites.css";
 const Favourites: React.FC = () => {
   return (
-    <div>
-      <h1>Favourites</h1>
+    <div className="allCards">
+      <FavouritesCard />
+      <FavouritesCard />
+      <FavouritesCard />
+      <FavouritesCard />
+      <FavouritesCard />
     </div>
   );
 };
