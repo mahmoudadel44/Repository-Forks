@@ -1,25 +1,23 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import SearchForm from "../components/SearchForm";
+import Repositories from "../components/Repositories";
 
 const Home: React.FC = () => {
-  const [forks, setForks] = useState({});
-  useEffect(() => {
-    fetchRepos();
-  });
-  const fetchRepos: any = () => {
-    axios
-      .get(
-        `https://api.github.com/search/repositories?q=Mernstack-Shopping-Cart&per_page=2`
-      )
-      .then((response) => console.log("response", response))
-      .catch((err) => console.error(err));
-  };
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reposPerPage, setReposPerPage] = useState(6);
+  let allRepositories = useSelector(
+    (state: any) => state.RepositoryReducer.repos
+  );
+  const indexOfLastRepo = currentPage * reposPerPage;
+  const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+  const currentRepos = allRepositories.slice(indexOfFirstRepo, indexOfLastRepo);
   return (
-    <div>
-      <h1>Home</h1>
-      <label>Forks</label>
-      <input type="text" placeholder="Search For Forks" />{" "}
-    </div>
+    <>
+      <h1 className="welcomeText">Welcome To Home</h1>
+      <SearchForm />
+      <Repositories allRepositories={currentRepos} />
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import RepositoryReducer from "./repositoryReducer";
+import RepositoryReducer from "./RepositoriesReducer";
 const rootReducer = combineReducers({
-  Repository: RepositoryReducer,
+  RepositoryReducer,
 });
 export default rootReducer;
