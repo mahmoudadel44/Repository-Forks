@@ -8,17 +8,17 @@ const Repositories: React.FC<{ allRepositories: any[] }> = ({
   return (
     <>
       {allRepositories.length ? (
-        <table className="styled-table">
+        <table className="styled-table animate__animated animate__fadeInUp">
           <thead>
             <tr>
               <th>Full Name</th>
               <th>Owner</th>
-              <th>Fork Link</th>
+              <th className="">Fork Link</th>
               <th>Stars</th>
               <th>Favourites</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="animate__animated animate__fadeInUp animate__delay-1s">
             {allRepositories &&
               allRepositories.map((repo) => (
                 <tr key={repo.id}>

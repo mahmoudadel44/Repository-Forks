@@ -17,7 +17,7 @@ const SearchForm: React.FC = () => {
     setSearchText("");
   };
   return (
-    <div className="searchFormWrapper">
+    <div className="searchFormWrapper animate__animated animate__fadeInDown animate__delay-1s">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
