@@ -1,10 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import addToFavourites from "../redux/actions/FavouritesActions";
 
 //Css
 import "../styles/Repositories.css";
-const Repositories: React.FC<{ allRepositories: any[] }> = ({
-  allRepositories,
-}) => {
+const Repositories: React.FC<{
+  allRepositories: any[];
+}> = ({ allRepositories }) => {
+
+  const dispatch = useDispatch();
   return (
     <>
       {allRepositories.length ? (
@@ -13,7 +17,7 @@ const Repositories: React.FC<{ allRepositories: any[] }> = ({
             <tr>
               <th>Full Name</th>
               <th>Owner</th>
-              <th className="">Fork Link</th>
+              <th>Fork Link</th>
               <th>Stars</th>
               <th>Favourites</th>
             </tr>
@@ -27,7 +31,9 @@ const Repositories: React.FC<{ allRepositories: any[] }> = ({
                   <td>{repo.forks_url}</td>
                   <td>{repo.stargazers_count}</td>
                   <td>
-                    <button>Add To Favourite</button>
+                    <button onClick={() => dispatch(addToFavourites(repo))}>
+                      Add To Favourite
+                    </button>
                   </td>
                 </tr>
               ))}
