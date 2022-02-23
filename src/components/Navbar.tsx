@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   return (
     <div className=" navbar">
       <ul>
-        <li>
+        <li className="animate__animated animate__fadeInLeft">
           <Link to="/favourites">
             <div className="favouritesContainer">
               {" "}
@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
             </div>
           </Link>
         </li>
-        <li>
+        <li className="animate__animated animate__fadeInRight">
           <Link to="/">
             <div className="homeContainer">
               {" "}

@@ -1,12 +1,12 @@
 .navbar {
   width: 100%;
-  padding: 14px 0px;
+  padding: 10px 0px;
   display: flex;
   justify-content: center;
   background-color: #009879;
 }
 .navbar ul {
-  width: 180px;
+  width: 220px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,6 +28,6 @@
   align-items: center;
 }
 .navbar .favouritesContainer span,
-.navbar .homeContainer span{
-margin-top: 8px;
+.navbar .homeContainer span {
+  margin-top: 8px;
 }
