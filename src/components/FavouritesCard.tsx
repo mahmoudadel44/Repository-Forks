@@ -1,15 +1,17 @@
 //Css
-import "../styles/Favourites.css"
+import "../styles/Favourites.css";
 
-const FavouritesCard: React.FC = () => {
+const FavouritesCard: React.FC<{ favouriteData: any }> = ({
+  favouriteData,
+}) => {
   return (
     <div className="card">
       <div>
-        <ul>
-          <li>FullName : Mahmoud</li>
-          <li>Owner : Mahmoud</li>
+        <ul key={favouriteData.id}>
+          <li>FullName : {favouriteData.full_name}</li>
+          {/* <li>Owner : Mahmoud</li>
           <li>Stars : Mahmoud</li>
-          <li>ForkLink : Mahmoud</li>
+          <li>ForkLink : Mahmoud</li> */}
         </ul>
       </div>
     </div>

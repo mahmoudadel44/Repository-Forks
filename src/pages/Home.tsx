@@ -5,17 +5,20 @@ import Repositories from "../components/Repositories";
 import Pagination from "../components/Pagination";
 
 const Home: React.FC = () => {
+  const [favourites, setFavourites] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [reposPerPage, setReposPerPage] = useState(5);
-  let allRepositories = useSelector(
-    (state: any) => state.RepositoryReducer.repos
-  );
+  let allRepositories = useSelector((state: any) => state.Repositories.repos);
   const indexOfLastRepo = currentPage * reposPerPage;
   const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
   const currentRepos = allRepositories.slice(indexOfFirstRepo, indexOfLastRepo);
   const paginate = (pageNumber: any) => {
     setCurrentPage(pageNumber);
   };
+  // const handleFavourite = (repo: any) => {
+  //   const newFavouriteList: any = [...favourites, repo];
+  //   setFavourites(newFavouriteList);
+  // };
 
   return (
     <>
@@ -23,7 +26,10 @@ const Home: React.FC = () => {
         Welcome To Home
       </h1>
       <SearchForm />
-      <Repositories allRepositories={currentRepos} />
+      <Repositories
+        allRepositories={currentRepos}
+        // handleFavourite={handleFavourite}
+      />
       <Pagination
         reposPerPage={reposPerPage}
         allRepositories={allRepositories.length}
