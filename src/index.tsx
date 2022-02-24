@@ -4,6 +4,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import createStore from "./redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//Css
 import "./index.css";
 
 import App from "./App";
