@@ -6,7 +6,7 @@ import Pagination from "../components/Pagination";
 
 const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [reposPerPage, setReposPerPage] = useState(5);
+  const [reposPerPage] = useState(5);
   let allRepositories = useSelector((state: any) => state.Repositories.repos);
   const indexOfLastRepo = currentPage * reposPerPage;
   const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
