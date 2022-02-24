@@ -4,6 +4,7 @@ import addToFavourites from "../redux/actions/FavouritesActions";
 
 //Css
 import "../styles/Repositories.css";
+
 import FavouritesModal from "./Modal";
 const Repositories: React.FC<{
   allRepositories: any[];
@@ -16,6 +17,23 @@ const Repositories: React.FC<{
   const handleShow = (repo: any) => {
     setSelectedRepo(repo);
     setShow(true);
+    addToFirebase(repo);
+  };
+  const addToFirebase = (repo: any) => {
+    const { full_name, forks_url, stargazers_count } = repo;
+    const { login } = repo.owner;
+    fetch("https://github-repositories-728fb-default-rtdb.firebaseio.com/rposdata.json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        full_name,
+        forks_url,
+        stargazers_count,
+        login,
+      }),
+    });
   };
 
   return (
@@ -40,7 +58,6 @@ const Repositories: React.FC<{
                   <td>{repo.forks_url}</td>
                   <td>{repo.stargazers_count}</td>
                   <td>
-                    {/* <button onClick={() => dispatch(addToFavourites(repo))}>Add To Favourites</button> */}
                     <button onClick={() => handleShow(repo)}>
                       Add To Favourite
                     </button>
