@@ -15,11 +15,14 @@ const FavouritesReducer = (
   switch (action.type) {
     case types.ADD_TO_FAVOURITES:
       console.log("action", action);
-
-      return {
-        ...state,
-        favourites: [...state.favourites, action.payload],
-      };
+      if (state.favourites.some((fav) => fav.id === action.payload.id)) {
+        return state;
+      } else {
+        return {
+          ...state,
+          favourites: [...state.favourites, action.payload],
+        };
+      }
     default:
       return state;
   }

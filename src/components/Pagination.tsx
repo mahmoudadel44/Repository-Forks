@@ -5,10 +5,14 @@ const Pagination: React.FC<{
   reposPerPage: any;
   allRepositories: any;
   paginate: any;
+  paginateToFirst: any;
+  paginateToLast: any;
 }> = ({
   allRepositories,
   reposPerPage,
   paginate,
+  paginateToFirst,
+  paginateToLast,
 }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(allRepositories / reposPerPage); i++) {
@@ -16,20 +20,22 @@ const Pagination: React.FC<{
   }
   return (
     <>
-      {allRepositories && (
+      {allRepositories ? (
         <div className="pagination">
-          {/* <a href="#">
+          <a href="#" onClick={() => paginateToFirst()}>
             &laquo;
-          </a> */}
+          </a>
           {pageNumbers.map((number) => (
-            <a href="#" key={number} onClick={() => paginate(number)}>
+            <a key={number} onClick={() => paginate(number)} href="#">
               {number}
             </a>
           ))}
-          {/* <a href="#">
+          <a href="#" onClick={() => paginateToLast()}>
             &raquo;
-          </a> */}
+          </a>
         </div>
+      ) : (
+        null
       )}
     </>
   );
