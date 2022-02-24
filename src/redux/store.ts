@@ -1,16 +1,45 @@
-import { createStore, applyMiddleware, compose } from "redux";
+// import { createStore, applyMiddleware, compose } from "redux";
+// import Thunk from "redux-thunk";
+// import RootReducer from "./reducers/index";
+
+// let middleware = [Thunk];
+
+// const composeEnhancers =
+//   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// const store = createStore(
+//   RootReducer,
+//   composeEnhancers(applyMiddleware(...middleware))
+// );
+
+// export default store;
+
+import { createStore, applyMiddleware, compose, Store, AnyAction } from "redux";
+
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
 import Thunk from "redux-thunk";
 import RootReducer from "./reducers/index";
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["Favourites"],
+};
 
 let middleware = [Thunk];
 
 const composeEnhancers =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
-  RootReducer,
-  composeEnhancers(applyMiddleware(...middleware))
-);
+const persistedReducer = persistReducer(persistConfig, RootReducer);
 
-export default store;
-
+export default () => {
+  let store: Store = createStore(
+    persistedReducer,
+    composeEnhancers(applyMiddleware(...middleware))
+  );
+  let persistor = persistStore(store);
+  return { store, persistor };
+};

@@ -5,23 +5,32 @@
   flex-wrap: wrap;
 }
 .card {
-  margin: 100px auto;
-  width: 310px;
-  min-height: 400px;
-  padding: 16px;
-  font-size: 18px;
+  margin: 60px auto 40px;
+  width: 450px;
+  min-height: 260px;
+  padding: 6px;
   background-color: #009879;
   border: 1px solid #009879;
   border-radius: 18px;
   color: #fff;
 }
-.card:hover{
-    transform: scale(1.02);
-    transition: 0.4s all ease-in-out;
+.card:hover {
+  transform: scale(1.02);
+  transition: 0.4s all ease-in-out;
 }
 .card ul {
   padding: 25px;
 }
-.card ul li{
-  margin-bottom: 50px;
+.card ul li {
+  margin-bottom: 40px;
+  list-style-type: none;
+  border: 1px solid #fff;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+}
+.card ul :last-child {
+  margin-bottom: 0px;
 }

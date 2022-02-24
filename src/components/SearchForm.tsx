@@ -21,7 +21,7 @@ const SearchForm: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search For repositories ......."
+          placeholder="Search For repositorie ......."
           onChange={handleChange}
           className="searchInput"
           value={searchText}
