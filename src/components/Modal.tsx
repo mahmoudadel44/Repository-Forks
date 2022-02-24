@@ -9,14 +9,16 @@ const FavouritesModal: React.FC<{
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>Question</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      <Modal.Body>
+        are you sure you want to add this fork to your favorites ?
+      </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="danger" onClick={handleClose}>
           No
         </Button>
-        <Button variant="primary" onClick={handleSubmit}>
+        <Button variant="success" onClick={handleSubmit}>
           Yes
         </Button>
       </Modal.Footer>

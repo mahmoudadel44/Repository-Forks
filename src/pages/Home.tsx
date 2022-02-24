@@ -15,10 +15,10 @@ const Home: React.FC = () => {
     setCurrentPage(pageNumber);
   };
 
-  const paginateToFirst = () => {
+  const paginateToPrevious = () => {
     setCurrentPage(currentPage - 1);
   };
-  const paginateToLast = () => {
+  const paginateToNext = () => {
     setCurrentPage(currentPage + 1);
   };
   return (
@@ -32,8 +32,8 @@ const Home: React.FC = () => {
         reposPerPage={reposPerPage}
         allRepositories={allRepositories.length}
         paginate={paginate}
-        paginateToFirst={paginateToFirst}
-        paginateToLast={paginateToLast}
+        paginateToPrevious={paginateToPrevious}
+        paginateToNext={paginateToNext}
       />
     </>
   );
