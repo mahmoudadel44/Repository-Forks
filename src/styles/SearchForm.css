@@ -41,8 +41,10 @@
     align-items: center;
   }
   form .searchInput {
-    width: 90%;
-    padding: 10px 30px;
+    width: 435px !important;
+    padding: 10px 40px !important;
+    margin-left: 30px;
+    margin-right: 30px;
   }
   form .searchInput,
   form .searchBtn {
